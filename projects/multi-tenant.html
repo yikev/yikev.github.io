@@ -1,0 +1,191 @@
+<!DOCTYPE HTML>
+<!--
+  Project Detail - Multi-Tenant File Sharing Platform
+  Theme: Massively by HTML5 UP
+  Matches the look and feel of index.html
+-->
+<html>
+  <head>
+    <title>Multi-Tenant File Sharing - Kevin Yi</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+  </head>
+  <body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper" class="fade-in">
+
+      <!-- Header -->
+      <header id="header">
+        <a href="../index.html" class="logo">Kevin Yi</a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li class="active"><a href="#">Multi-Tenant File Sharing</a></li>
+        </ul>
+        <ul class="icons">
+          <li><a href="https://www.linkedin.com/in/yikev/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+          <li><a href="http://github.com/yikev" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+
+        <!-- Hero -->
+        <article class="post featured">
+          <header class="major">
+            <h1>Multi-Tenant File Sharing Platform</h1>
+            <p>Secure tenant-scoped storage, role based access, and shareable links with audit trails.</p>
+          </header>
+          <span class="image main">
+            <img src="../images/multi-tenant-hero.png" alt="Multi-tenant file sharing dashboard hero" />
+          </span>
+          <ul class="actions special">
+            <!-- <li><a href="#" class="button large primary">Live Demo</a></li> -->
+            <li><a href="https://github.com/yikev/multi-tenant-file-sharing" class="button">GitHub</a></li>
+            <li><a href="../index.html#projects" class="button">Back to Projects</a></li>
+          </ul>
+        </article>
+
+        <!-- Overview -->
+        <section class="post">
+          <h2>Overview</h2>
+          <p>
+            A SaaS-style file sharing app that isolates organizations by tenant while keeping costs low with a shared storage account. Users can upload, preview, and share files with fine grained permissions. Admins track usage and activity from a clean dashboard.
+          </p>
+
+          <div class="row">
+            <div class="col-6 col-12-small">
+              <h3>Highlights</h3>
+              <ul>
+                <li>JWT authentication with refresh and role based authorization.</li>
+                <li>Tenant scoped storage using Cloudinary folders - <code>tenant_id/project_id/filename</code>.</li>
+                <li>Share links with expirations and optional passwords.</li>
+                <li>Audit logging for uploads, downloads, deletes, and permission changes.</li>
+                <li>Dashboard tiles: total files, storage used, active users, recent uploads.</li>
+                <li>Search and filters by filename, type, uploader, project, and date.</li>
+                <li>Size caps and MIME whitelist on the server to prevent unsafe uploads.</li>
+              </ul>
+            </div>
+            <div class="col-6 col-12-small">
+              <h3>Tech Stack</h3>
+              <ul>
+                <li>Frontend - React, Mantine UI.</li>
+                <li>Backend - FastAPI, Python, SQLAlchemy.</li>
+                <li>Database - Postgres (Supabase in deployment).</li>
+                <li>Storage - Cloudinary shared account with tenant specific paths.</li>
+                <li>Infra - Render.com for API, GitHub Actions for CI.</li>
+              </ul>
+            </div>
+          </div>
+
+          <hr />
+
+          <h2>Architecture</h2>
+          <p>
+            The client authenticates with the FastAPI service and receives JWTs. For uploads, the client requests a short lived Cloudinary signature from the API, uploads the file directly to Cloudinary under the tenant folder, and then posts file metadata back to the API. Downloads use signed URLs and authorization checks to enforce tenant and role boundaries.
+          </p>
+
+          <div class="row">
+            <div class="col-6 col-12-small">
+              <h3>Key Endpoints</h3>
+              <ul>
+                <li><code>POST /auth/login</code> and <code>/auth/refresh</code> - token based auth.</li>
+                <li><code>POST /files/sign</code> - returns upload signature and path.</li>
+                <li><code>POST /files</code> - persist metadata after upload.</li>
+                <li><code>GET /files?filters=...</code> - search and pagination.</li>
+                <li><code>GET /files/{id}/download</code> - authorized signed read URL.</li>
+              </ul>
+            </div>
+            <div class="col-6 col-12-small">
+              <h3>Data Model</h3>
+              <ul>
+                <li><strong>Tenant</strong>, <strong>Project</strong>, <strong>User</strong> with role membership.</li>
+                <li><strong>File</strong> - name, path, size, type, checksum, uploader, project.</li>
+                <li><strong>AuditLog</strong> - actor, action, target, timestamp, ip.</li>
+              </ul>
+            </div>
+          </div>
+
+          <hr />
+
+          <h2>Tenancy and Security</h2>
+          <ul>
+            <li>Authorization checks include tenant id and role on every request.</li>
+            <li>Server side validation for file size and MIME type.</li>
+            <li>All storage paths are prefixed by tenant, preventing cross tenant access.</li>
+            <li>Optional link passwords and expirations for external sharing.</li>
+          </ul>
+
+          <hr />
+
+          <h2>What I Built</h2>
+          <ul>
+            <li>Designed the schema for tenants, projects, users, files, and audit logs.</li>
+            <li>Implemented JWT based auth and role checks in FastAPI.</li>
+            <li>Built the upload signature flow and metadata persistence.</li>
+            <li>Developed dashboard components - totals, charts, and recent uploads.</li>
+            <li>Added search with filters and server side pagination.</li>
+          </ul>
+
+          <hr />
+
+          <h2>Screens and Media</h2>
+          <div class="row gtr-50 gtr-uniform">
+            <div class="col-6"><span class="image fit"><img src="../images/mt-dashboard.jpg" alt="Dashboard tiles" /></span></div>
+            <div class="col-6"><span class="image fit"><img src="../images/mt-uploads.jpg" alt="Upload with signature flow" /></span></div>
+            <div class="col-6"><span class="image fit"><img src="../images/mt-permissions.jpg" alt="Permissions and roles" /></span></div>
+            <div class="col-6"><span class="image fit"><img src="../images/mt-activity.jpg" alt="Audit activity log" /></span></div>
+          </div>
+
+          <ul class="actions special" style="margin-top: 2rem;">
+            <li><a href="../index.html#projects" class="button">Back to Projects</a></li>
+          </ul>
+        </section>
+
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <section class="split contact">
+          <section class="alt">
+            <h3>Location</h3>
+            <p>Vancouver, British Columbia</p>
+          </section>
+          <section>
+            <h3>Email</h3>
+            <p>Yi.Kevin@outlook.com</p>
+          </section>
+          <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+              <li><a href="https://www.linkedin.com/in/yikev/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+              <li><a href="http://github.com/yikev" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+            </ul>
+          </section>
+        </section>
+      </footer>
+
+      <!-- Copyright -->
+      <div id="copyright">
+        <ul><li>&copy; Kevin Yi</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+      </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

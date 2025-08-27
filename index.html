@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Massively by HTML5 UP</title>
+		<title>Kevin Yi — Portfolio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -19,24 +19,23 @@
 
 				<!-- Intro -->
 					<div id="intro">
-						<h1>My Portfolio </h1>
-						<p>A showcase o my projects and my abilities.</p>
+						<h1>Kevin Yi — Portfolio</h1>
+						<p>A showcase of my projects and abilities.</p>
 						<ul class="actions">
-							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+							<li><a href="#about" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
 						</ul>
 					</div>
 
 				<!-- Header -->
 					<header id="header">
-						<a href="index.html" class="logo">Massively</a>
+						<a href="index.html" class="logo">Kevin Yi</a>
 					</header>
 
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li class="active"><a href="index.html">This is Massively</a></li>
-							<li><a href="generic.html">Generic Page</a></li>
-							<li><a href="elements.html">Elements Reference</a></li>
+							<li><a href="#about">About</a></li>
+							<li class="active"><a href="#projects">Projects</a></li>
 						</ul>
 						<ul class="icons">
 							<li><a href="https://www.linkedin.com/in/yikev/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
@@ -49,44 +48,95 @@
 
 						<!-- Featured Post -->
 							<article class="post featured">
-								<header class="major">
-									<h2><a href="#">My Name is Kevin Yi</a></h2>
-									<p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
-									facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
-									amet nullam sed etiam veroeros.</p>
-								</header>
-								<a href="#" class="image main"><img src="images/pic01.jpg" alt="" /></a>
-								<ul class="actions special">
-									<li><a href="#" class="button large">Check it out</a></li>
-								</ul>
-							</article>
+  <header class="major">
+    <h2>Kevin Yi — Software Engineer</h2>
+    <p>Early-career developer with a B.Sc. in Computer Science from UBC. Passionate about building secure, performant, and user-friendly web applications.</p>
+  </header>
+  <a href="#about" class="image main"><img src="images/portfolio-hero.png" alt="Kevin Yi portfolio hero image" /></a>
+  <ul class="actions special">
+    <li><a href="#projects" class="button large">See My Work</a></li>
+  </ul>
+</article>
 
-						<!-- Posts -->
-							<section class="posts">
-								<article>
-									<header>
-										<h2><a href="#">Project 1<br />
-										ipsum faucibus</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
-									<ul class="actions special">
-										<li><a href="#" class="button">Check it out</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<h2><a href="#">Project 2<br />
-										imperdiet lorem</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/pic03.jpg" alt="" /></a>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
-									<ul class="actions special">
-										<li><a href="#" class="button">Check it out</a></li>
-									</ul>
-								</article>
-								
-							</section>
+						<!-- About -->
+						<section class="post" id="about">
+							<header class="major">
+								<h2>About Me</h2>
+								<p>I’m a software engineer who builds full-stack applications and performance-minded systems. Here’s a quick summary of my work.</p>
+							</header>
+							<ul>
+								<li><strong>Digital Asset Management (DAM) System</strong> - Enterprise-ready DAM with ASP.NET Core, EF Core, Azure Blob Storage, and Next.js/React. Secure uploads, role-based access, audit logging, advanced search, and admin dashboards.</li>
+								<li><strong>AI-Powered E-Commerce Analytics (Shoplytics)</strong> - Next.js + FastAPI app that ingests Shopify data. XGBoost forecasting predicts demand, detects anomalies, and powers insight dashboards with Mantine UI.</li>
+								<li><strong>Eternal Gauntlet</strong> - C++ 2D turn-based game using a custom ECS, adaptive AI combat, and procedurally generated maps.</li>
+								<li><strong>Multi-Tenant File Sharing Platform</strong> - FastAPI + Postgres + React with JWT auth, tenant-scoped Cloudinary storage, role-based permissions, and audit trails.</li>
+								<li><strong>Blackjack Trainer</strong> - React + TypeScript trainer for multi-deck blackjack with strategy feedback, split support, and session stats.</li>
+							</ul>
+						</section>
+
+						<section class="posts" id="projects">
+  <article>
+    <header>
+      <h2><a href="projects/dam.html">Digital Asset Management (DAM) System</a></h2>
+    </header>
+    <a href="projects/dam.html" class="image fit"><img src="images/pic02.jpg" alt="Digital Asset Management project screenshot" /></a>
+    <p>Enterprise-ready DAM built with ASP.NET Core, EF Core, Azure Blob Storage, and Next.js/React. Features secure uploads, role‑based access control, audit logging, metadata extraction, advanced search, and admin dashboards.</p>
+    <ul class="actions special">
+      <!-- <li><a href="#" class="button">Live Demo</a></li> -->
+      <!-- No public GitHub link yet -->
+      <li><a href="projects/dam.html" class="button">Details</a></li>
+    </ul>
+  </article>
+  <article>
+    <header>
+      <h2><a href="projects/shoplytics.html">AI‑Powered E‑Commerce Analytics Dashboard</a></h2>
+    </header>
+    <a href="projects/shoplytics.html" class="image fit"><img src="images/shoplytics-dashboard.png" alt="E‑commerce analytics dashboard screenshot" /></a>
+    <p>Full‑stack app using Next.js + FastAPI that analyzes Shopify data. XGBoost models forecast demand and flag anomalies. Interactive Mantine UI visualizations show actual vs. predicted performance and product insights.</p>
+    <ul class="actions special">
+      <!-- <li><a href="#" class="button">Live Demo</a></li> -->
+      <li><a href="#" class="button">Live Demo</a></li>
+      <li><a href="https://github.com/yikev/shoplytics" class="button">GitHub</a></li>
+      <li><a href="projects/shoplytics.html" class="button">Details</a></li>
+    </ul>
+  </article>
+  <article>
+    <header>
+      <h2><a href="projects/eternal-gauntlet.html">Eternal Gauntlet — 2D Turn‑Based Game</a></h2>
+    </header>
+    <a href="projects/eternal-gauntlet.html" class="image fit"><img src="images/eternal-gauntlet-hero.png" alt="Eternal Gauntlet game screenshot" /></a>
+    <p>Custom C++ game with an ECS architecture, adaptive AI‑driven combat, and procedurally generated maps. Focuses on performant systems, reusable components, and engaging turn‑based mechanics.</p>
+    <ul class="actions special">
+      <!-- <li><a href="#" class="button">Gameplay Video</a></li> -->
+      <li><a href="#" class="button">Gameplay Video</a></li>
+      <li><a href="https://github.com/yikev/EternalGauntlet" class="button">GitHub</a></li>
+      <li><a href="projects/eternal-gauntlet.html" class="button">Details</a></li>
+    </ul>
+  </article>
+  <article>
+    <header>
+      <h2><a href="projects/multi-tenant.html">Multi‑Tenant File Sharing Platform</a></h2>
+    </header>
+    <a href="projects/multi-tenant.html" class="image fit"><img src="images/multi-tenant-hero.png" alt="Multi‑tenant file sharing platform screenshot" /></a>
+    <p>Secure multi‑tenant app with JWT auth and tenant‑scoped storage. Uses shared Cloudinary with tenant‑specific folder paths, FastAPI backend, and React frontend. Includes dashboards, recent uploads, and per‑tenant analytics.</p>
+    <ul class="actions special">
+      <!-- <li><a href="#" class="button">Live Demo</a></li> -->
+      <li><a href="#" class="button">Live Demo</a></li>
+      <li><a href="https://github.com/yikev/multi-tenant-file-sharing" class="button">GitHub</a></li>
+      <li><a href="projects/multi-tenant.html" class="button">Details</a></li>
+    </ul>
+  </article>
+  <article>
+    <header>
+      <h2><a href="https://github.com/yikev/blackjack-trainer">Blackjack Trainer</a></h2>
+    </header>
+    <a href="projects/blackjack-trainer.html" class="image fit"><img src="images/bj-home.png" alt="Blackjack Trainer project screenshot" /></a>
+    <p>Interactive React + TypeScript web app that simulates blackjack with multiple decks and betting. Designed to help users practice and learn card counting strategies with split support and score tracking.</p>
+    <ul class="actions special">
+      <li><a href="https://github.com/yikev/blackjack-trainer" class="button">GitHub</a></li>
+      <li><a href="projects/blackjack-trainer.html" class="button">Details</a></li>
+    </ul>
+  </article>
+</section>
 
 						<!-- Footer -->
 							<footer>

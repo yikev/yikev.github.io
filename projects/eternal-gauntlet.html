@@ -1,0 +1,173 @@
+<!DOCTYPE HTML>
+<!--
+  Project Detail - Eternal Gauntlet (2D Turn-Based Game)
+  Theme: Massively by HTML5 UP
+  Matches the look and feel of index.html
+-->
+<html>
+  <head>
+    <title>Eternal Gauntlet - Kevin Yi</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+  </head>
+  <body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper" class="fade-in">
+
+      <!-- Header -->
+      <header id="header">
+        <a href="../index.html" class="logo">Kevin Yi</a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li class="active"><a href="#">Eternal Gauntlet</a></li>
+        </ul>
+        <ul class="icons">
+          <li><a href="https://www.linkedin.com/in/yikev/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+          <li><a href="http://github.com/yikev" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+
+        <!-- Hero -->
+        <article class="post featured">
+          <header class="major">
+            <h1>Eternal Gauntlet - 2D Turn-Based Game</h1>
+            <p>Custom C++ game with an ECS architecture, adaptive AI combat, and procedurally generated maps.</p>
+          </header>
+          <span class="image main">
+            <img src="../images/eternal-gauntlet-hero.png" alt="Eternal Gauntlet gameplay hero" />
+          </span>
+          <ul class="actions special">
+            <!-- <li><a href="#" class="button large">Gameplay Video</a></li> -->
+            <li><a href="https://github.com/yikev/EternalGauntlet" class="button">GitHub</a></li>
+            <li><a href="../index.html#projects" class="button">Back to Projects</a></li>
+          </ul>
+        </article>
+
+        <!-- Overview -->
+        <section class="post">
+          <h2>Overview</h2>
+          <p>
+            Eternal Gauntlet is a lightweight, performance minded 2D turn based game. I built a bespoke Entity Component System to manage thousands of entities efficiently, then layered in a turn queue, status effects, and AI that adapts to player moves. Levels are generated at runtime with seeded randomness so runs are replayable for debugging and balancing.
+          </p>
+
+          <div class="row">
+            <div class="col-6 col-12-small">
+              <h3>Highlights</h3>
+              <ul>
+                <li>Custom ECS with contiguous storage and minimal heap churn.</li>
+                <li>Deterministic turn system with action queue and priorities.</li>
+                <li>Procedural map generation with seeded RNG for reproducibility.</li>
+                <li>AI behaviors that switch between aggressive, evasive, and support modes.</li>
+                <li>Combat effects: damage over time, shields, taunts, and interrupts.</li>
+              </ul>
+            </div>
+            <div class="col-6 col-12-small">
+              <h3>Tech Stack</h3>
+              <ul>
+                <li>C++17, custom ECS, STL.</li>
+                <li>OpenGL for rendering, GLFW for windowing and input.</li>
+                <li>GLM for math, stb_image for assets.</li>
+                <li>CMake build, cross platform dev on macOS and Windows.</li>
+              </ul>
+            </div>
+          </div>
+
+          <hr />
+
+          <h2>Architecture and Systems</h2>
+          <div class="row">
+            <div class="col-6 col-12-small">
+              <h3>Core Systems</h3>
+              <ul>
+                <li><strong>PhysicsSystem</strong> - updates entity transforms and handles collisions.</li>
+                <li><strong>CombatSystem</strong> - resolves turns, abilities, and status effects.</li>
+                <li><strong>AISystem</strong> - pathfinding and behavior trees with threat evaluation.</li>
+                <li><strong>RenderSystem</strong> - sprites, layers, and camera.</li>
+                <li><strong>MapGen</strong> - seeded dungeon generation and placement rules.</li>
+              </ul>
+            </div>
+            <div class="col-6 col-12-small">
+              <h3>Key Components</h3>
+              <ul>
+                <li><strong>Transform</strong>, <strong>Velocity</strong>, <strong>Collider</strong>, <strong>Health</strong>, <strong>Mana</strong>.</li>
+                <li><strong>Ability</strong> - cost, cooldown, range, and effect.</li>
+                <li><strong>AIState</strong> - mode, target, and memory for last seen positions.</li>
+              </ul>
+            </div>
+          </div>
+
+          <hr />
+
+          <h2>What I Built</h2>
+          <ul>
+            <li>Designed and implemented the ECS with efficient iteration over dense component arrays.</li>
+            <li>Created the turn engine with action queue, priorities, and interrupt rules.</li>
+            <li>Implemented pathfinding and behavior switching for enemies.</li>
+            <li>Built procedural level generation and spawn balancing tools.</li>
+            <li>Added debugging overlays: entity counts, frame time, and collision boxes.</li>
+          </ul>
+
+          <hr />
+
+          <h2>Screens and Media</h2>
+          <div class="row gtr-50 gtr-uniform">
+            <div class="col-6"><span class="image fit"><img src="../images/combat-ui.png" alt="Combat UI" /></span></div>
+            <div class="col-6"><span class="image fit"><img src="../images/generated-rewards.png" alt="Generated End Round Rewards" /></span></div>
+            <div class="col-6"><span class="image fit"><img src="../images/game-over.png" alt="Game Over" /></span></div>
+          </div>
+
+          <ul class="actions special" style="margin-top: 2rem;">
+            <li><a href="../index.html#projects" class="button">Back to Projects</a></li>
+          </ul>
+        </section>
+
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <section class="split contact">
+          <section class="alt">
+            <h3>Location</h3>
+            <p>Vancouver, British Columbia</p>
+          </section>
+          <section>
+            <h3>Email</h3>
+            <p>Yi.Kevin@outlook.com</p>
+          </section>
+          <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+              <li><a href="https://www.linkedin.com/in/yikev/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+              <li><a href="http://github.com/yikev" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+            </ul>
+          </section>
+        </section>
+      </footer>
+
+      <!-- Copyright -->
+      <div id="copyright">
+        <ul><li>&copy; Kevin Yi</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+      </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

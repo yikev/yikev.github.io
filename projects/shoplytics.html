@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<!--
+  Project Detail - AI-Powered E-Commerce Analytics (Shoplytics)
+  Theme: Massively by HTML5 UP
+  Matches the look and feel of index.html
+-->
+<html>
+  <head>
+    <title>AI-Powered E-Commerce Analytics - Kevin Yi</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+  </head>
+  <body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper" class="fade-in">
+
+      <!-- Header -->
+      <header id="header">
+        <a href="../index.html" class="logo">Kevin Yi</a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li class="active"><a href="#">E-Commerce Analytics</a></li>
+        </ul>
+        <ul class="icons">
+          <li><a href="https://www.linkedin.com/in/yikev/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+          <li><a href="http://github.com/yikev" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+
+        <!-- Hero -->
+        <article class="post featured">
+          <header class="major">
+            <h1>AI-Powered E-Commerce Analytics Dashboard</h1>
+            <p>Full stack analytics for Shopify data - demand forecasting, anomaly detection, and actionable insights.</p>
+          </header>
+          <span class="image main">
+            <img src="../images/shoplytics-dashboard.png" alt="E-commerce analytics dashboard hero" />
+          </span>
+          <ul class="actions special">
+            <!-- Keep demo hidden until a URL is available -->
+            <!-- <li><a href="#" class="button large primary">Live Demo</a></li> -->
+            <li><a href="https://github.com/yikev/shoplytics" class="button">GitHub</a></li>
+            <li><a href="../index.html#projects" class="button">Back to Projects</a></li>
+          </ul>
+        </article>
+
+        <!-- Overview -->
+        <section class="post">
+          <h2>Overview</h2>
+          <p>
+            Shoplytics connects to the Shopify API and turns raw store activity into forecasts and insights. I designed an XGBoost based model that learns seasonality and recent trends to predict daily sales and flag outliers. The dashboard uses Mantine UI and React for interactive charts and product level breakdowns that help merchants plan inventory and marketing.
+          </p>
+
+          <div class="row">
+            <div class="col-6 col-12-small">
+              <h3>Highlights</h3>
+              <ul>
+                <li>XGBoost forecasting trained on seasonality, recent performance, and promotions.</li>
+                <li>Anomaly detection to alert on unexpected spikes or dips in sales.</li>
+                <li>Product and collection comparisons with trend lines and rolling windows.</li>
+                <li>Account scoped auth with JWT and rate limited backend APIs.</li>
+                <li>Downloadable reports with recent vs predicted performance.</li>
+              </ul>
+            </div>
+            <div class="col-6 col-12-small">
+              <h3>Tech Stack</h3>
+              <ul>
+                <li>Frontend - Next.js, React, Mantine UI.</li>
+                <li>Backend - FastAPI, Python, pandas, scikit-learn, XGBoost.</li>
+                <li>Data - Shopify REST/GraphQL API, Postgres or SQLite for dev.</li>
+                <li>Infra - JWT auth, task queue for ETL and model refresh.</li>
+              </ul>
+            </div>
+          </div>
+
+          <hr />
+
+          <h2>Architecture</h2>
+          <p>
+            The ETL service ingests orders, products, and customers from Shopify and stores curated tables. Feature builders compute rolling 3 to 5 day windows, season averages, volatility, and promotion flags. The model service exposes forecast and anomaly endpoints that the Next.js app calls to render charts and tiles.
+          </p>
+
+          <div class="row">
+            <div class="col-6 col-12-small">
+              <h3>Key Endpoints</h3>
+              <ul>
+                <li><code>POST /api/ingest/run</code> - pull latest Shopify data.</li>
+                <li><code>GET /api/forecast/daily?store_id=...</code> - return next N day predictions.</li>
+                <li><code>GET /api/anomalies?range=...</code> - list flagged anomalies with reasons.</li>
+                <li><code>GET /api/products/compare?ids=...</code> - comparative metrics for products.</li>
+              </ul>
+            </div>
+            <div class="col-6 col-12-small">
+              <h3>UI Features</h3>
+              <ul>
+                <li>Actual vs predicted charts with tooltips and zoom.</li>
+                <li>Recent performance tiles - revenue, AOV, conversion rate.</li>
+                <li>Filters for date range, channel, and collection.</li>
+                <li>Export to CSV or PNG for reports.</li>
+              </ul>
+            </div>
+          </div>
+
+          <hr />
+
+          <h2>What I Built</h2>
+          <ul>
+            <li>Implemented ETL pipelines and schema for orders, products, and customers.</li>
+            <li>Engineered features - rolling windows, seasonality, and volatility metrics.</li>
+            <li>Trained and evaluated the XGBoost model with backtesting.</li>
+            <li>Developed FastAPI endpoints and auth guards.</li>
+            <li>Built the React dashboard with Mantine components and charts.</li>
+          </ul>
+
+          <hr />
+
+          <h2>Screens and Media</h2>
+          <div class="row gtr-50 gtr-uniform">
+            <div class="col-6"><span class="image fit"><img src="../images/shoplytics-customers.png" alt="Customers Page" /></span></div>
+            <div class="col-6"><span class="image fit"><img src="../images/shoplytics-insights.png" alt="Insights" /></span></div>
+            <div class="col-6"><span class="image fit"><img src="../images/shoplytics-orders.png" alt="Orders Page List" /></span></div>
+            <div class="col-6"><span class="image fit"><img src="../images/shopyltics-products.png" alt="Products comparison view" /></span></div>
+            <div class="col-6"><span class="image fit"><img src="../images/shoplytics-login.png" alt="Login Page" /></span></div>
+          </div>
+
+          <ul class="actions special" style="margin-top: 2rem;">
+            <li><a href="../index.html#projects" class="button">Back to Projects</a></li>
+          </ul>
+        </section>
+
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <section class="split contact">
+          <section class="alt">
+            <h3>Location</h3>
+            <p>Vancouver, British Columbia</p>
+          </section>
+          <section>
+            <h3>Email</h3>
+            <p>Yi.Kevin@outlook.com</p>
+          </section>
+          <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+              <li><a href="https://www.linkedin.com/in/yikev/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+              <li><a href="http://github.com/yikev" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+            </ul>
+          </section>
+        </section>
+      </footer>
+
+      <!-- Copyright -->
+      <div id="copyright">
+        <ul><li>&copy; Kevin Yi</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+      </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

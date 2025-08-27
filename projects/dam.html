@@ -1,0 +1,195 @@
+<!DOCTYPE HTML>
+<!--
+  Project Detail - Digital Asset Management (DAM)
+  Theme: Massively by HTML5 UP
+  This page fits the same look and feel as index.html.
+-->
+<html>
+  <head>
+    <title>Digital Asset Management (DAM) - Kevin Yi</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+  </head>
+  <body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper" class="fade-in">
+
+      <!-- Header -->
+      <header id="header">
+        <a href="../index.html" class="logo">Kevin Yi</a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li class="active"><a href="#">DAM Project</a></li>
+        </ul>
+        <ul class="icons">
+          <li><a href="https://www.linkedin.com/in/yikev/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+          <li><a href="http://github.com/yikev" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+
+        <!-- Hero -->
+        <article class="post featured">
+          <header class="major">
+            <h1>Digital Asset Management (DAM) System</h1>
+            <p>Enterprise grade DAM for engineers and project teams - secure uploads, rich metadata, fast search, and governance.</p>
+          </header>
+          <span class="image main">
+            <img src="../images/dam-hero.jpg" alt="Screenshot of DAM system" />
+          </span>
+          <ul class="actions special">
+            <!-- Keep demo hidden until a URL is available -->
+            <!-- <li><a href="#" class="button large primary">Live Demo</a></li> -->
+            <!-- No public repo for this project for now -->
+            <!-- <li><a href="#" class="button">GitHub</a></li> -->
+            <li><a href="../index.html#projects" class="button">Back to Projects</a></li>
+          </ul>
+        </article>
+
+        <!-- Overview -->
+        <section class="post">
+          <h2>Overview</h2>
+          <p>
+            I built a secure Digital Asset Management platform to help teams store, organize, and find project files at scale. The system supports image and document uploads with automatic metadata extraction, role based access control, tenant scoped permissions, audit logging, and fast search across tags, EXIF, and custom fields.
+          </p>
+
+          <div class="row">
+            <div class="col-6 col-12-small">
+              <h3>Highlights</h3>
+              <ul>
+                <li>ASP.NET Core API with Entity Framework Core and SQL Server.</li>
+                <li>Azure Blob Storage for durable object storage with SAS tokens.</li>
+                <li>Next.js and React UI with server rendered pages and API routes.</li>
+                <li>Role based access - Admin, Manager, Contributor, Viewer.</li>
+                <li>Audit logs for uploads, edits, downloads, and permissions changes.</li>
+                <li>Advanced search - filename, tag, EXIF, GPS, date, and project filters.</li>
+                <li>Admin dashboards for storage usage, recent uploads, and active users.</li>
+              </ul>
+            </div>
+            <div class="col-6 col-12-small">
+              <h3>Tech Stack</h3>
+              <ul>
+                <li>Backend - ASP.NET Core 8, EF Core, SQL Server, REST, JWT auth.</li>
+                <li>Storage - Azure Blob Storage, ImageKit for thumbnails.</li>
+                <li>Frontend - Next.js 14, React, Mantine UI.</li>
+                <li>Infra - Azure App Service, CI scripts, environment secrets.</li>
+                <li>Utilities - OpenCage Geocoding for city and country from GPS.</li>
+              </ul>
+            </div>
+          </div>
+
+          <hr />
+
+          <h2>Architecture</h2>
+          <p>
+            The API validates metadata and writes asset objects to Azure Blob Storage. Database rows hold normalized file metadata, tags, and audit events. Thumbnails are generated on upload and served through a CDN friendly path. The UI calls the API with JWTs and enforces per tenant and per role access rules.
+          </p>
+
+          <div class="row">
+            <div class="col-6 col-12-small">
+              <h3>Key Entities</h3>
+              <ul>
+                <li><strong>Files</strong> - file name, path, size, owner, project, checksum.</li>
+                <li><strong>FileMetadata</strong> - GPS coordinates, date taken, camera, tags.</li>
+                <li><strong>Tenants</strong> - org scoped isolation and quotas.</li>
+                <li><strong>Projects</strong> - group files by client or job.</li>
+                <li><strong>AuditLog</strong> - who did what and when.</li>
+              </ul>
+            </div>
+            <div class="col-6 col-12-small">
+              <h3>Notable Endpoints</h3>
+              <ul>
+                <li><code>POST /api/files/upload</code> - multi part upload, metadata validation, SAS write.</li>
+                <li><code>POST /api/files/metadata</code> - save or update metadata after upload.</li>
+                <li><code>GET /api/files/search</code> - full filter query with pagination and sort.</li>
+                <li><code>GET /api/files/{id}</code> - signed read for secure download.</li>
+              </ul>
+            </div>
+          </div>
+
+          <hr />
+
+          <h2>Security and Governance</h2>
+          <ul>
+            <li>JWT based auth with role checks on every route.</li>
+            <li>Per tenant isolation in storage paths - <code>tenant_id/project_id/filename</code>.</li>
+            <li>Server side input validation and allowed MIME checks.</li>
+            <li>Least privilege SAS tokens with short expirations.</li>
+            <li>Structured audit logs for access review and incident response.</li>
+          </ul>
+
+          <hr />
+
+          <h2>What I Built</h2>
+          <ul>
+            <li>Designed database schema and EF Core models for Files, FileMetadata, Projects, and AuditLog.</li>
+            <li>Implemented upload flow with validation and thumbnail generation.</li>
+            <li>Built search API and React UI for filters, sorting, and pagination.</li>
+            <li>Added admin dashboards for usage stats and recent activity.</li>
+            <li>Integrated OpenCage to backfill city and country from GPS when missing.</li>
+          </ul>
+
+          <hr />
+
+          <h2>Screens and Media</h2>
+          <div class="row gtr-50 gtr-uniform">
+            <div class="col-6"><span class="image fit"><img src="../images/dam-upload.jpg" alt="Upload screen" /></span></div>
+            <div class="col-6"><span class="image fit"><img src="../images/dam-search.jpg" alt="Search screen" /></span></div>
+            <div class="col-6"><span class="image fit"><img src="../images/dam-audit.jpg" alt="Audit log screen" /></span></div>
+            <div class="col-6"><span class="image fit"><img src="../images/dam-dashboard.jpg" alt="Admin dashboard" /></span></div>
+          </div>
+
+          <ul class="actions special" style="margin-top: 2rem;">
+            <li><a href="../index.html#projects" class="button">Back to Projects</a></li>
+          </ul>
+        </section>
+
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <section class="split contact">
+          <section class="alt">
+            <h3>Location</h3>
+            <p>Vancouver, British Columbia</p>
+          </section>
+          <section>
+            <h3>Email</h3>
+            <p>Yi.Kevin@outlook.com</p>
+          </section>
+          <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+              <li><a href="https://www.linkedin.com/in/yikev/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+              <li><a href="http://github.com/yikev" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+            </ul>
+          </section>
+        </section>
+      </footer>
+
+      <!-- Copyright -->
+      <div id="copyright">
+        <ul><li>&copy; Kevin Yi</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+      </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

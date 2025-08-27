@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<!--
+  Project Detail - Blackjack Trainer
+  Theme: Massively by HTML5 UP
+  Matches the look and feel of index.html
+-->
+<html>
+  <head>
+    <title>Blackjack Trainer - Kevin Yi</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+  </head>
+  <body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper" class="fade-in">
+
+      <!-- Header -->
+      <header id="header">
+        <a href="../index.html" class="logo">Kevin Yi</a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li class="active"><a href="#">Blackjack Trainer</a></li>
+        </ul>
+        <ul class="icons">
+          <li><a href="https://www.linkedin.com/in/yikev/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+          <li><a href="http://github.com/yikev" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+
+        <!-- Hero -->
+        <article class="post featured">
+          <header class="major">
+            <h1>Blackjack Trainer</h1>
+            <p>Interactive React + TypeScript app that teaches card counting and optimal decisions.</p>
+          </header>
+          <span class="image main">
+            <img src="../images/bj-home.png" alt="Blackjack Trainer hero" />
+          </span>
+          <ul class="actions special">
+            <!-- <li><a href="#" class="button large primary">Live Demo</a></li> -->
+            <li><a href="https://github.com/yikev/blackjack-trainer" class="button">GitHub</a></li>
+            <li><a href="../index.html#projects" class="button">Back to Projects</a></li>
+          </ul>
+        </article>
+
+        <!-- Overview -->
+        <section class="post">
+          <h2>Overview</h2>
+          <p>
+            A training tool for learning blackjack fundamentals and card counting. It simulates multi deck shoes, betting, splits, and dealer rules, then scores your play against a strategy table. The UI surfaces immediate feedback and keeps session stats so users can track progress.
+          </p>
+
+          <div class="row">
+            <div class="col-6 col-12-small">
+              <h3>Highlights</h3>
+              <ul>
+                <li>Multiple decks with configurable penetration and shuffle rules.</li>
+                <li>Full support for hit, stand, double, split, and surrender options.</li>
+                <li>Basic strategy engine with correctness feedback on each decision.</li>
+                <li>Running and true count calculations with training prompts.</li>
+                <li>Session stats: hands played, win rate, EV, errors by category.</li>
+              </ul>
+            </div>
+            <div class="col-6 col-12-small">
+              <h3>Tech Stack</h3>
+              <ul>
+                <li>Frontend - React + TypeScript.</li>
+                <li>State - React hooks, context for table state.</li>
+                <li>Build - Vite, GitHub Pages deployment.</li>
+                <li>Testing - Vitest for core logic.</li>
+              </ul>
+            </div>
+          </div>
+
+          <hr />
+
+          <h2>Architecture</h2>
+          <p>
+            Core logic is a pure TypeScript engine that models the shoe, hand objects, dealer rules, and strategy evaluation. The UI subscribes to engine events to render the table, chips, and decision prompts. A stats module logs outcomes and produces summaries used for progress charts.
+          </p>
+
+          <div class="row">
+            <div class="col-6 col-12-small">
+              <h3>Key Modules</h3>
+              <ul>
+                <li><strong>shoe.ts</strong> - deck generation, shuffles, penetration, burn.</li>
+                <li><strong>hand.ts</strong> - hand values, soft vs hard totals, splits.</li>
+                <li><strong>strategy.ts</strong> - correctness checks and hints.</li>
+                <li><strong>trainer.ts</strong> - session loop and scoring.</li>
+              </ul>
+            </div>
+            <div class="col-6 col-12-small">
+              <h3>UI Features</h3>
+              <ul>
+                <li>Keyboard shortcuts for fast training.</li>
+                <li>Overlay feedback when decisions are optimal or sub optimal.</li>
+                <li>Charts for recent accuracy and EV by hand type.</li>
+              </ul>
+            </div>
+          </div>
+
+          <hr />
+
+          <h2>What I Built</h2>
+          <ul>
+            <li>Implemented the TypeScript engine for cards, hands, and dealer rules.</li>
+            <li>Added split support and betting flows with chip stacks.</li>
+            <li>Built a strategy checker and feedback overlays.</li>
+            <li>Deployed via GitHub Pages with Vite config fixes.</li>
+          </ul>
+
+          <hr />
+
+          <h2>Screens and Media</h2>
+          <div class="row gtr-50 gtr-uniform">
+            <div class="col-6"><span class="image fit"><img src="../images/bj-gameplay.png" alt="Blackjack table UI" /></span></div>
+            <div class="col-6"><span class="image fit"><img src="../images/bj-tutorial.png" alt="Tutorial" /></span></div>
+            <div class="col-6"><span class="image fit"><img src="../images/bj-win.png" alt="Blackjack win screen" /></span></div>
+          </div>
+
+          <ul class="actions special" style="margin-top: 2rem;">
+            <li><a href="../index.html#projects" class="button">Back to Projects</a></li>
+          </ul>
+        </section>
+
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <section class="split contact">
+          <section class="alt">
+            <h3>Location</h3>
+            <p>Vancouver, British Columbia</p>
+          </section>
+          <section>
+            <h3>Email</h3>
+            <p>Yi.Kevin@outlook.com</p>
+          </section>
+          <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+              <li><a href="https://www.linkedin.com/in/yikev/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+              <li><a href="http://github.com/yikev" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+            </ul>
+          </section>
+        </section>
+      </footer>
+
+      <!-- Copyright -->
+      <div id="copyright">
+        <ul><li>&copy; Kevin Yi</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+      </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>
