@@ -21,18 +21,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # If you have a build step, run it here (e.g. npm ci && npm run build)
-      # - name: Build
-      #   run: |
-      #     npm ci
-      #     npm run build
-
-      # Upload the site files to the Pages artifact
-      # If you build to "dist" or "build", change path accordingly.
+      # If you're not building anything, deploy the repo root:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .  # or ./dist, ./build, etc.
+          path: .   # change to ./dist or ./build if you have a build step
 
   deploy:
     environment:
