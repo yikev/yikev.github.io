@@ -1,0 +1,221 @@
+<!DOCTYPE HTML>
+<!--
+  Project Detail - Basketball Fantasy Predictor
+  Theme: Massively by HTML5 UP
+  Matches the look and feel of index.html
+-->
+<html>
+  <head>
+    <title>Basketball Fantasy Predictor - Kevin Yi</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+  </head>
+  <body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper" class="fade-in">
+
+      <!-- Header -->
+      <header id="header">
+        <a href="../index.html" class="logo">Kevin Yi</a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li class="active"><a href="#">Basketball Fantasy Predictor</a></li>
+        </ul>
+        <ul class="icons">
+          <li><a href="https://www.linkedin.com/in/yikev/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+          <li><a href="http://github.com/yikev" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+
+        <!-- Hero -->
+        <article class="post featured">
+          <header class="major">
+            <h1>Basketball Fantasy Predictor</h1>
+            <p>
+              A web app that predicts NBA fantasy points for a player using machine learning, combining recent performance,
+              season stats, and game context into a single pre-game projection.
+            </p>
+          </header>
+
+          <span class="image main">
+            <!-- Replace with a real screenshot when you have one -->
+            <img src="" alt="Basketball Fantasy Predictor" />
+          </span>
+
+          <ul class="actions special">
+            <!-- <li><a href="#" class="button large primary">Live Demo</a></li> -->
+            <li><a href="https://github.com/yikev/nba-fantasy-predictor" class="button">GitHub</a></li>
+            <li><a href="../index.html#projects" class="button">Back to Projects</a></li>
+          </ul>
+
+          <p style="text-align:center; margin-top: 0.5rem;">
+            <em>Status:</em> Not deployed yet. Repo includes training notebooks, a FastAPI inference service, and a React UI to run locally.
+          </p>
+        </article>
+
+        <!-- Overview -->
+        <section class="post">
+          <h2>Overview</h2>
+          <p>
+            A machine learning web app that predicts NBA fantasy points for a searched player before an upcoming game.
+            The UI surfaces season averages, recent form (last 3 games), and key context signals used by the model,
+            then outputs a predicted fantasy points estimate. Built to make player projection exploration fast and explainable.
+          </p>
+
+          <div class="row">
+            <div class="col-6 col-12-small">
+              <h3>Highlights</h3>
+              <ul>
+                <li>Player search with a focused single-player results page.</li>
+                <li>General DraftKings-style fantasy points target (approximate scoring).</li>
+                <li>Feature engineering recomputed at request time to match training-time features.</li>
+                <li>XGBoost regression model for tabular prediction.</li>
+                <li>Recent games panel to compare actual fantasy points vs model expectations.</li>
+                <li>Clear API handling for missing players, missing games, and insufficient history.</li>
+              </ul>
+            </div>
+
+            <div class="col-6 col-12-small">
+              <h3>Tech Stack</h3>
+              <ul>
+                <li>Frontend - React, TypeScript, plain CSS.</li>
+                <li>Backend - FastAPI, Python.</li>
+                <li>ML - XGBoost, pandas, scikit-learn (preprocessing + evaluation).</li>
+                <li>Data - Kaggle NBA game logs / stats dataset.</li>
+                <li>Tooling - Jupyter notebooks for training and experiments.</li>
+              </ul>
+            </div>
+          </div>
+
+          <hr />
+
+          <h2>Architecture</h2>
+          <p>
+            The React client calls the FastAPI service to search players and fetch prediction context. On prediction,
+            the API loads the player’s historical game logs from the Kaggle dataset, recomputes engineered features
+            (for example last-3/5 averages, season aggregates, volatility, and simple game context), validates the
+            feature vector, and feeds it into a trained XGBoost model. The API returns the predicted fantasy points
+            along with key inputs used, so the UI can show both the result and supporting context.
+          </p>
+
+          <div class="row">
+            <div class="col-6 col-12-small">
+              <h3>Key Endpoints</h3>
+              <ul>
+                <li><code>GET /players/search?q=...</code> - player lookup by name.</li>
+                <li><code>GET /players/{player_id}/summary</code> - season averages, last-3 averages, and recent games.</li>
+                <li><code>POST /predict</code> - predicted fantasy points plus model feature inputs.</li>
+                <li><code>GET /player_history?player_id=...</code> - cleaned game history used for features (optional).</li>
+              </ul>
+            </div>
+
+            <div class="col-6 col-12-small">
+              <h3>Data Model</h3>
+              <ul>
+                <li><strong>Player</strong> - id, name, team, position.</li>
+                <li><strong>GameLog</strong> - date, opponent, home/away, minutes, box score stats, fantasy_points.</li>
+                <li><strong>Features</strong> - engineered inputs (recent averages, season stats, volatility, context flags).</li>
+                <li><strong>Prediction</strong> - player_id, predicted_points, model_version, generated_at.</li>
+              </ul>
+            </div>
+          </div>
+
+          <hr />
+
+          <h2>Fantasy Points Target</h2>
+          <p>
+            The model predicts a general fantasy points metric based on a DraftKings-style scoring approach. The target is
+            computed from box score stats (for example points, rebounds, assists, steals, blocks, and turnovers), producing
+            a single fantasy points value per game used for training and evaluation.
+          </p>
+
+          <hr />
+
+          <h2>Model and Features</h2>
+          <ul>
+            <li><strong>Model:</strong> XGBoost regression.</li>
+            <li><strong>Recent form:</strong> last 3 and last 5 game averages (and trends where applicable).</li>
+            <li><strong>Season baseline:</strong> season-to-date averages.</li>
+            <li><strong>Stability:</strong> rolling standard deviation / volatility features.</li>
+            <li><strong>Context:</strong> home/away and schedule flags (for example back-to-back), when available in the dataset.</li>
+          </ul>
+
+          <hr />
+
+          <h2>What I Built</h2>
+          <ul>
+            <li>Built an end-to-end pipeline from Kaggle dataset ingestion to model training and API inference.</li>
+            <li>Implemented request-time feature engineering to ensure inference matches training features.</li>
+            <li>Trained and evaluated an XGBoost regression model for fantasy point prediction.</li>
+            <li>Designed FastAPI endpoints for player search, stats summaries, and prediction.</li>
+            <li>Built the React UI with plain CSS to display context stats and prediction outputs clearly.</li>
+          </ul>
+
+          <hr />
+
+          <h2>Screens and Media</h2>
+          <p>
+            Add screenshots when ready (search, player summary, prediction output, recent games chart). For now these are placeholders.
+          </p>
+          <div class="row gtr-50 gtr-uniform">
+            <div class="col-6"><span class="image fit"><img src="../images/nba-search.jpg" alt="Player search" /></span></div>
+            <div class="col-6"><span class="image fit"><img src="../images/nba-summary.jpg" alt="Player summary and season averages" /></span></div>
+            <div class="col-6"><span class="image fit"><img src="../images/nba-prediction.jpg" alt="Fantasy points prediction output" /></span></div>
+            <div class="col-6"><span class="image fit"><img src="../images/nba-recent-games.jpg" alt="Recent games and trends" /></span></div>
+          </div>
+
+          <ul class="actions special" style="margin-top: 2rem;">
+            <li><a href="../index.html#projects" class="button">Back to Projects</a></li>
+          </ul>
+        </section>
+
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <section class="split contact">
+          <section class="alt">
+            <h3>Location</h3>
+            <p>Vancouver, British Columbia</p>
+          </section>
+          <section>
+            <h3>Email</h3>
+            <p>yi.kevin@outlook.com</p>
+          </section>
+          <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+              <li><a href="https://www.linkedin.com/in/yikev/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+              <li><a href="http://github.com/yikev" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+            </ul>
+          </section>
+        </section>
+      </footer>
+
+      <!-- Copyright -->
+      <div id="copyright">
+        <ul><li>&copy; Kevin Yi</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+      </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

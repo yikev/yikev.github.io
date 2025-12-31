@@ -14,6 +14,9 @@
 		$main = $('#main'),
 		$navPanelToggle, $navPanel, $navPanelInner;
 
+	// Respect user motion preferences.
+	var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 	// Breakpoints.
 		breakpoints({
 			default:   ['1681px',   null       ],
@@ -61,14 +64,19 @@
 					.removeClass('fixed')
 					.css('transform', 'matrix(1,0,0,1,0,0)');
 
-				$window
-					.on('scroll._parallax', function() {
-
-						var pos = parseInt($window.scrollTop()) - parseInt($t.position().top);
-
-						$bg.css('transform', 'matrix(1,0,0,1,0,' + (pos * intensity) + ')');
-
-					});
+				var lastKnownY = 0, ticking = false;
+				var onScroll = function() {
+					lastKnownY = window.scrollY || $window.scrollTop();
+					if (!ticking) {
+						window.requestAnimationFrame(function() {
+							var pos = parseInt(lastKnownY) - parseInt($t.position().top);
+							$bg.css('transform', 'translate3d(0,' + (pos * intensity) + 'px,0)');
+							ticking = false;
+						});
+						ticking = true;
+					}
+				};
+				window.addEventListener('scroll', onScroll, { passive: true });
 
 			};
 
@@ -78,10 +86,15 @@
 					.addClass('fixed')
 					.css('transform', 'none');
 
-				$window
-					.off('scroll._parallax');
+				window.removeEventListener('scroll', onScroll);
 
 			};
+
+			// Respect reduced motion preference.
+			if (prefersReducedMotion) {
+				off();
+				return;
+			}
 
 			// Disable parallax on ..
 				if (browser.name == 'ie'			// IE
@@ -117,17 +130,19 @@
 			}, 100);
 		});
 
-	// Scrolly.
-		$('.scrolly').scrolly();
+	// Scrolly (respect reduced motion).
+		if (!prefersReducedMotion)
+			$('.scrolly').scrolly();
 
-	// Background.
-		$wrapper._parallax(0.925);
+	// Background (respect reduced motion).
+		if (!prefersReducedMotion)
+			$wrapper._parallax(0.925);
 
 	// Nav Panel.
 
 		// Toggle.
 			$navPanelToggle = $(
-				'<a href="#navPanel" id="navPanelToggle">Menu</a>'
+				'<a href="#navPanel" id="navPanelToggle" aria-controls="navPanel" aria-expanded="false" role="button">Menu</a>'
 			)
 				.appendTo($wrapper);
 
@@ -164,6 +179,14 @@
 
 			// Get inner.
 				$navPanelInner = $navPanel.children('nav');
+
+			// Keep aria-expanded in sync with panel visibility.
+			var panelToggleEl = $('#navPanelToggle');
+			var bodyClassObserver = new MutationObserver(function() {
+				var expanded = $body.hasClass('is-navPanel-visible') ? 'true' : 'false';
+				panelToggleEl.attr('aria-expanded', expanded);
+			});
+			bodyClassObserver.observe(document.body, { attributes: true, attributeFilter: ['class'] });
 
 			// Move nav content on breakpoint change.
 				var $navContent = $nav.children();
@@ -218,6 +241,8 @@
 			// Hide intro on scroll (> small).
 				breakpoints.on('>small', function() {
 
+					if (prefersReducedMotion) { $main.unscrollex(); return; }
+
 					$main.unscrollex();
 
 					$main.scrollex({
@@ -236,6 +261,8 @@
 
 			// Hide intro on scroll (<= small).
 				breakpoints.on('<=small', function() {
+
+					if (prefersReducedMotion) { $main.unscrollex(); return; }
 
 					$main.unscrollex();
 

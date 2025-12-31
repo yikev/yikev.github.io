@@ -48,15 +48,15 @@
 
 						<!-- Featured Post -->
 							<article class="post featured">
-  <header class="major">
-    <h2>Kevin Yi — Software Engineer</h2>
-    <p>Early-career developer with a B.Sc. in Computer Science from UBC. Passionate about building secure, performant, and user-friendly web applications.</p>
-  </header>
-  <a href="#about" class="image main"><img src="images/portfolio-hero.png" alt="Kevin Yi portfolio hero image" /></a>
-  <ul class="actions special">
-    <li><a href="#projects" class="button large">See My Work</a></li>
-  </ul>
-</article>
+								<header class="major">
+									<h2>Kevin Yi — Software Engineer</h2>
+									<p>Early-career developer with a B.Sc. in Computer Science from UBC. Passionate about building secure, performant, and user-friendly web applications.</p>
+								</header>
+								<a href="#about" class="image main"><img src="images/portfolio-hero.png" alt="Kevin Yi portfolio hero image" /></a>
+								<ul class="actions special">
+									<li><a href="#projects" class="button large">See My Work</a></li>
+								</ul>
+							</article>
 
 						<!-- About -->
 						<section class="post" id="about">
@@ -66,7 +66,8 @@
 							</header>
 							<ul>
 								<li><strong>Digital Asset Management (DAM) System</strong> - Enterprise-ready DAM with ASP.NET Core, EF Core, Azure Blob Storage, and Next.js/React. Secure uploads, role-based access, audit logging, advanced search, and admin dashboards.</li>
-								<li><strong>AI-Powered E-Commerce Analytics (Shoplytics)</strong> - Next.js + FastAPI app that ingests Shopify data. XGBoost forecasting predicts demand, detects anomalies, and powers insight dashboards with Mantine UI.</li>
+								<li><strong>AI-Powered E-Commerce Analytics (Shoplytics)</strong> - Next.js + FastAPI app that ingests Shopify data. XGBoost forecasting predicts demand, detects anomalies, and powers insight dashboards.</li>
+								<li><strong>Basketball Fantasy Predictor</strong> - ML-driven NBA player projection app using Kaggle game log data and XGBoost to estimate DraftKings-style fantasy points using recent form, season stats, and context signals.</li>
 								<li><strong>Eternal Gauntlet</strong> - C++ 2D turn-based game using a custom ECS, adaptive AI combat, and procedurally generated maps.</li>
 								<li><strong>Multi-Tenant File Sharing Platform</strong> - FastAPI + Postgres + React with JWT auth, tenant-scoped Cloudinary storage, role-based permissions, and audit trails.</li>
 								<li><strong>Blackjack Trainer</strong> - React + TypeScript trainer for multi-deck blackjack with strategy feedback, split support, and session stats.</li>
@@ -74,82 +75,96 @@
 						</section>
 
 						<section class="posts" id="projects">
-  <article>
-    <header>
-      <h2><a href="projects/dam.html">Digital Asset Management (DAM) System</a></h2>
-    </header>
-    <a href="projects/dam.html" class="image fit"><img src="images/pic02.jpg" alt="Digital Asset Management project screenshot" /></a>
-    <p>Enterprise-ready DAM built with ASP.NET Core, EF Core, Azure Blob Storage, and Next.js/React. Features secure uploads, role‑based access control, audit logging, metadata extraction, advanced search, and admin dashboards.</p>
-    <ul class="actions special">
-      <!-- <li><a href="#" class="button">Live Demo</a></li> -->
-      <!-- No public GitHub link yet -->
-      <li><a href="projects/dam.html" class="button">Details</a></li>
-    </ul>
-  </article>
-  <article>
-    <header>
-      <h2><a href="projects/shoplytics.html">AI‑Powered E‑Commerce Analytics Dashboard</a></h2>
-    </header>
-    <a href="projects/shoplytics.html" class="image fit"><img src="images/shoplytics-dashboard.png" alt="E‑commerce analytics dashboard screenshot" /></a>
-    <p>Full‑stack app using Next.js + FastAPI that analyzes Shopify data. XGBoost models forecast demand and flag anomalies. Interactive Mantine UI visualizations show actual vs. predicted performance and product insights.</p>
-    <ul class="actions special">
-      <!-- <li><a href="#" class="button">Live Demo</a></li> -->
-      <li><a href="#" class="button">Live Demo</a></li>
-      <li><a href="https://github.com/yikev/shoplytics" class="button">GitHub</a></li>
-      <li><a href="projects/shoplytics.html" class="button">Details</a></li>
-    </ul>
-  </article>
-  <article>
-    <header>
-      <h2><a href="projects/eternal-gauntlet.html">Eternal Gauntlet — 2D Turn‑Based Game</a></h2>
-    </header>
-    <a href="projects/eternal-gauntlet.html" class="image fit"><img src="images/eternal-gauntlet-hero.png" alt="Eternal Gauntlet game screenshot" /></a>
-    <p>Custom C++ game with an ECS architecture, adaptive AI‑driven combat, and procedurally generated maps. Focuses on performant systems, reusable components, and engaging turn‑based mechanics.</p>
-    <ul class="actions special">
-      <!-- <li><a href="#" class="button">Gameplay Video</a></li> -->
-      <li><a href="#" class="button">Gameplay Video</a></li>
-      <li><a href="https://github.com/yikev/EternalGauntlet" class="button">GitHub</a></li>
-      <li><a href="projects/eternal-gauntlet.html" class="button">Details</a></li>
-    </ul>
-  </article>
-  <article>
-    <header>
-      <h2><a href="projects/multi-tenant.html">Multi‑Tenant File Sharing Platform</a></h2>
-    </header>
-    <a href="projects/multi-tenant.html" class="image fit"><img src="images/multi-tenant-hero.png" alt="Multi‑tenant file sharing platform screenshot" /></a>
-    <p>Secure multi‑tenant app with JWT auth and tenant‑scoped storage. Uses shared Cloudinary with tenant‑specific folder paths, FastAPI backend, and React frontend. Includes dashboards, recent uploads, and per‑tenant analytics.</p>
-    <ul class="actions special">
-      <!-- <li><a href="#" class="button">Live Demo</a></li> -->
-      <li><a href="#" class="button">Live Demo</a></li>
-      <li><a href="https://github.com/yikev/multi-tenant-file-sharing" class="button">GitHub</a></li>
-      <li><a href="projects/multi-tenant.html" class="button">Details</a></li>
-    </ul>
-  </article>
-  <article>
-    <header>
-      <h2><a href="https://github.com/yikev/blackjack-trainer">Blackjack Trainer</a></h2>
-    </header>
-    <a href="projects/blackjack-trainer.html" class="image fit"><img src="images/bj-home.png" alt="Blackjack Trainer project screenshot" /></a>
-    <p>Interactive React + TypeScript web app that simulates blackjack with multiple decks and betting. Designed to help users practice and learn card counting strategies with split support and score tracking.</p>
-    <ul class="actions special">
-      <li><a href="https://github.com/yikev/blackjack-trainer" class="button">GitHub</a></li>
-      <li><a href="projects/blackjack-trainer.html" class="button">Details</a></li>
-    </ul>
-  </article>
-</section>
+							<article>
+								<header>
+									<h2><a href="projects/dam.html">Digital Asset Management (DAM) System</a></h2>
+								</header>
+								<a href="projects/dam.html" class="image fit"><img src="images/pic02.jpg" alt="Digital Asset Management project screenshot" /></a>
+								<p>Enterprise-ready DAM built with ASP.NET Core, EF Core, Azure Blob Storage, and Next.js/React. Features secure uploads, role-based access control, audit logging, metadata extraction, advanced search, and admin dashboards.</p>
+								<ul class="actions special">
+									<!-- <li><a href="#" class="button">Live Demo</a></li> -->
+									<!-- No public GitHub link yet -->
+									<li><a href="projects/dam.html" class="button">Details</a></li>
+								</ul>
+							</article>
+
+							<article>
+								<header>
+									<h2><a href="projects/shoplytics.html">AI-Powered E-Commerce Analytics Dashboard</a></h2>
+								</header>
+								<a href="projects/shoplytics.html" class="image fit"><img src="images/shoplytics-dashboard.png" alt="E-commerce analytics dashboard screenshot" /></a>
+								<p>Full-stack app using Next.js + FastAPI that analyzes Shopify data. XGBoost models forecast demand and flag anomalies. Interactive dashboards show actual vs. predicted performance and product insights.</p>
+								<ul class="actions special">
+									<!-- <li><a href="#" class="button">Live Demo</a></li> -->
+									<li><a href="#" class="button">Live Demo</a></li>
+									<li><a href="https://github.com/yikev/shoplytics" class="button">GitHub</a></li>
+									<li><a href="projects/shoplytics.html" class="button">Details</a></li>
+								</ul>
+							</article>
+
+							<!-- NEW: Basketball Fantasy Predictor -->
+							<article>
+								<header>
+									<h2><a href="projects/basketball-fantasy-predictor.html">Basketball Fantasy Predictor</a></h2>
+								</header>
+								<a href="projects/basketball-fantasy-predictor.html" class="image fit"><img src="images/nba-fantasy-hero.jpg" alt="Basketball Fantasy Predictor screenshot" /></a>
+								<p>A web app that predicts NBA fantasy points for a player using machine learning, combining recent performance, season stats, and game context into a single pre-game projection.</p>
+								<ul class="actions special">
+									<!-- <li><a href="#" class="button">Live Demo</a></li> -->
+									<li><a href="https://github.com/yikev/nba-fantasy-predictor" class="button">GitHub</a></li>
+									<li><a href="projects/basketball-fantasy-predictor.html" class="button">Details</a></li>
+								</ul>
+							</article>
+
+							<article>
+								<header>
+									<h2><a href="projects/eternal-gauntlet.html">Eternal Gauntlet — 2D Turn-Based Game</a></h2>
+								</header>
+								<a href="projects/eternal-gauntlet.html" class="image fit"><img src="images/eternal-gauntlet-hero.png" alt="Eternal Gauntlet game screenshot" /></a>
+								<p>Custom C++ game with an ECS architecture, adaptive AI-driven combat, and procedurally generated maps. Focuses on performant systems, reusable components, and engaging turn-based mechanics.</p>
+								<ul class="actions special">
+									<!-- <li><a href="#" class="button">Gameplay Video</a></li> -->
+									<li><a href="#" class="button">Gameplay Video</a></li>
+									<li><a href="https://github.com/yikev/EternalGauntlet" class="button">GitHub</a></li>
+									<li><a href="projects/eternal-gauntlet.html" class="button">Details</a></li>
+								</ul>
+							</article>
+
+							<article>
+								<header>
+									<h2><a href="projects/multi-tenant.html">Multi-Tenant File Sharing Platform</a></h2>
+								</header>
+								<a href="projects/multi-tenant.html" class="image fit"><img src="images/multi-tenant-hero.png" alt="Multi-tenant file sharing platform screenshot" /></a>
+								<p>Secure multi-tenant app with JWT auth and tenant-scoped storage. Uses shared Cloudinary with tenant-specific folder paths, FastAPI backend, and React frontend. Includes dashboards, recent uploads, and per-tenant analytics.</p>
+								<ul class="actions special">
+									<!-- <li><a href="#" class="button">Live Demo</a></li> -->
+									<li><a href="#" class="button">Live Demo</a></li>
+									<li><a href="https://github.com/yikev/multi-tenant-file-sharing" class="button">GitHub</a></li>
+									<li><a href="projects/multi-tenant.html" class="button">Details</a></li>
+								</ul>
+							</article>
+
+							<article>
+								<header>
+									<h2><a href="projects/blackjack-trainer.html">Blackjack Trainer</a></h2>
+								</header>
+								<a href="projects/blackjack-trainer.html" class="image fit"><img src="images/bj-home.png" alt="Blackjack Trainer project screenshot" /></a>
+								<p>Interactive React + TypeScript web app that simulates blackjack with multiple decks and betting. Designed to help users practice and learn card counting strategies with split support and score tracking.</p>
+								<ul class="actions special">
+									<li><a href="https://github.com/yikev/blackjack-trainer" class="button">GitHub</a></li>
+									<li><a href="projects/blackjack-trainer.html" class="button">Details</a></li>
+								</ul>
+							</article>
+						</section>
 
 						<!-- Footer -->
-							<footer>
-								
-							</footer>
+							<footer></footer>
 
 					</div>
 
 				<!-- Footer -->
 					<footer id="footer">
-						<section>
-							
-						</section>
+						<section></section>
 						<section class="split contact">
 							<section class="alt">
 								<h3>Location</h3>
@@ -157,7 +172,7 @@
 							</section>
 							<section>
 								<h3>Email</h3>
-								<p>Yi.Kevin@outlook.com</p>
+								<p>yi.kevin@outlook.com</p>
 							</section>
 							<section>
 								<h3>Social</h3>
@@ -171,7 +186,7 @@
 
 				<!-- Copyright -->
 					<div id="copyright">
-						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+						<ul><li>&copy; Kevin Yi</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
 					</div>
 
 			</div>
